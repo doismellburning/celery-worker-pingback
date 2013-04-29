@@ -1,0 +1,20 @@
+from datetime import timedelta
+
+BROKER_URL = "redis://192.168.2.10"
+
+CELERY_IMPORTS = ("tasks", )
+
+CELERY_WORKER_DIRECT = True
+
+CELERYBEAT_SCHEDULE = {
+	"healthcheck": {
+		"task": "tasks.healthcheck",
+		"schedule": timedelta(seconds=30),
+	},
+	"scattershot": {
+		"task": "tasks.scattershot",
+		"schedule": timedelta(seconds=30),
+	},
+}
+
+CELERY_TIMEZONE = "UTC"

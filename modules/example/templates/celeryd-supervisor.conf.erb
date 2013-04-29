@@ -1,0 +1,5 @@
+[program:celerybeat]
+directory=/opt/celery
+command=celeryd --loglevel DEBUG --events
+stdout_logfile=/var/log/celeryd.log
+stderr_logfile=/var/log/celeryd.log
